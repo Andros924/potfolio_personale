@@ -58,6 +58,22 @@ export const Contact: React.FC = () => {
     }));
   };
 
+  const getPhoneLabel = () => {
+    switch (language) {
+      case 'en': return 'Phone';
+      case 'fr': return 'Téléphone';
+      default: return 'Telefono';
+    }
+  };
+
+  const getLocationLabel = () => {
+    switch (language) {
+      case 'en': return 'Location';
+      case 'fr': return 'Localisation';
+      default: return 'Località';
+    }
+  };
+
   return (
     <section id="contact" className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,8 +108,8 @@ export const Contact: React.FC = () => {
               <div className="space-y-4 sm:space-y-6">
                 {[
                   { icon: Mail, label: 'Email', value: 'studiotrib.amoroso@gmail.com', href: 'mailto:studiotrib.amoroso@gmail.com' },
-                  { icon: Phone, label: t.contact.info === 'Contact Information' ? 'Phone' : 'Telefono', value: '+39 389 053 6285', href: 'tel:+393890536285' },
-                  { icon: MapPin, label: t.contact.info === 'Contact Information' ? 'Location' : t.contact.info === 'Informations de Contact' ? 'Localisation' : 'Località', value: t.contact.location, href: '#' }
+                  { icon: Phone, label: getPhoneLabel(), value: '+39 389 053 6285', href: 'tel:+393890536285' },
+                  { icon: MapPin, label: getLocationLabel(), value: t.contact.location, href: '#' }
                 ].map((contact) => (
                   <motion.a
                     key={contact.label}

@@ -9,6 +9,7 @@ import { projects } from '../data/projects';
 export const Portfolio: React.FC = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const currentProjects = projects[language];
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
@@ -31,7 +32,7 @@ export const Portfolio: React.FC = () => {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-          {projects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}

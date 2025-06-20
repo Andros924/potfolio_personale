@@ -71,7 +71,7 @@ export const translations = {
       description: 'Fullstack Developer appassionato di tecnologie moderne e soluzioni innovative.',
       quickLinks: 'Link Rapidi',
       followMe: 'Seguimi',
-      madeWith: 'Made with'
+      madeWith: 'Realizzato con'
     }
   },
   en: {
@@ -110,7 +110,7 @@ export const translations = {
     portfolio: {
       title: 'My Projects',
       subtitle: 'Here are some projects I\'ve worked on',
-      viewCode: 'Code',
+      viewCode: 'View Code',
       viewLive: 'Live Demo',
       inProgress: 'In Progress',
       completed: 'Completed',
@@ -185,7 +185,7 @@ export const translations = {
     portfolio: {
       title: 'Mes Projets',
       subtitle: 'Voici quelques projets sur lesquels j\'ai travaillé',
-      viewCode: 'Code',
+      viewCode: 'Voir le Code',
       viewLive: 'Démo Live',
       inProgress: 'En Cours',
       completed: 'Terminé',
@@ -221,7 +221,7 @@ export const translations = {
       description: 'Développeur Fullstack passionné par les technologies modernes et les solutions innovantes.',
       quickLinks: 'Liens Rapides',
       followMe: 'Suivez-Moi',
-      madeWith: 'Fait avec'
+      madeWith: 'Réalisé avec'
     }
   }
 };
