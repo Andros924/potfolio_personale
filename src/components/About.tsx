@@ -20,57 +20,56 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="about" className="py-16 sm:py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             {t.about.title}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-16 sm:w-24 h-1 bg-blue-600 mx-auto mb-6 sm:mb-8"></div>
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {t.about.description}
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Skills Section */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
               {t.about.skills}
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                  transition={{ duration: 0.4, delay: 0.1 * index }}
+                  className="p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200"
                 >
-                  <div className="flex items-center mb-4">
-                    <div className="p-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white mr-4">
-                      <skill.icon size={24} />
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <div className="p-2 sm:p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400 mr-3 sm:mr-4">
+                      <skill.icon size={20} className="sm:w-6 sm:h-6" />
                     </div>
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    <h4 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
                       {skill.name}
                     </h4>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {skill.techs.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium"
+                        className="px-2 sm:px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs sm:text-sm font-medium"
                       >
                         {tech}
                       </span>
@@ -81,52 +80,51 @@ export const About: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Experience/Stats Section */}
+          {/* About Content */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-8"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="space-y-6 sm:space-y-8"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-              {t.about.experience}
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+              La mia storia
             </h3>
             
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { number: '4+', label: 'Progetti Completati' },
-                { number: '2+', label: 'Anni di Esperienza' },
-                { number: '10+', label: 'Tecnologie Utilizzate' },
-                { number: '100%', label: 'Soddisfazione Cliente' }
-              ].map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.1 * index }}
-                  className="text-center p-6 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl"
-                >
-                  <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-600 dark:text-gray-300 font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+                <h4 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Passione per il codice
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                  Ho iniziato il mio percorso nel mondo dello sviluppo web mosso dalla curiosità 
+                  di capire come funzionano le tecnologie che utilizziamo ogni giorno. 
+                  Quello che è iniziato come un hobby si è trasformato in una vera passione.
+                </p>
+              </div>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="p-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white"
-            >
-              <h4 className="text-xl font-bold mb-4">La mia filosofia</h4>
-              <p className="leading-relaxed">
-                Credo che ogni progetto sia un'opportunità per creare qualcosa di straordinario. 
-                Mi concentro sulla qualità del codice, l'esperienza utente e l'innovazione tecnologica 
-                per trasformare le idee in soluzioni digitali efficaci.
-              </p>
-            </motion.div>
+              <div className="p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
+                <h4 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Approccio al lavoro
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                  Credo nell'importanza di scrivere codice pulito e manutenibile. 
+                  Ogni progetto è un'opportunità per imparare qualcosa di nuovo e 
+                  migliorare le competenze tecniche e creative.
+                </p>
+              </div>
+
+              <div className="p-4 sm:p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800">
+                <h4 className="text-lg sm:text-xl font-semibold text-blue-900 dark:text-blue-100 mb-3">
+                  Obiettivi futuri
+                </h4>
+                <p className="text-blue-800 dark:text-blue-200 leading-relaxed text-sm sm:text-base">
+                  Continuo a formarmi sulle tecnologie emergenti e a perfezionare 
+                  le mie competenze. Il mio obiettivo è creare soluzioni che non solo 
+                  funzionino bene, ma che offrano anche un'esperienza utente eccellente.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
