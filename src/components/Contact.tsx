@@ -22,12 +22,34 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     setStatus('sending');
 
-    // Simulate form submission
-    setTimeout(() => {
-      setStatus('success');
-      setForm({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1000);
+    try {
+      // Invio email tramite EmailJS o servizio simile
+      const response = await fetch('https://formspree.io/f/xpwzgqpv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _replyto: form.email,
+          _subject: `Nuovo messaggio da ${form.name} - Portfolio`,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setForm({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 5000);
+      }
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -71,7 +93,7 @@ export const Contact: React.FC = () => {
               <div className="space-y-4 sm:space-y-6">
                 {[
                   { icon: Mail, label: 'Email', value: 'studiotrib.amoroso@gmail.com', href: 'mailto:studiotrib.amoroso@gmail.com' },
-                  { icon: Phone, label: 'Telefono', value: '+39 123 456 7890', href: 'tel:+391234567890' },
+                  { icon: Phone, label: 'Telefono', value: '+39 389 053 6285', href: 'tel:+393890536285' },
                   { icon: MapPin, label: 'Località', value: 'Italia', href: '#' }
                 ].map((contact) => (
                   <motion.a
@@ -189,7 +211,7 @@ export const Contact: React.FC = () => {
                   className="flex items-center gap-2 p-3 sm:p-4 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-lg text-sm sm:text-base"
                 >
                   <CheckCircle size={18} className="sm:w-5 sm:h-5" />
-                  {t.contact.success}
+                  Messaggio inviato con successo! Ti risponderò al più presto.
                 </motion.div>
               )}
 
@@ -200,7 +222,7 @@ export const Contact: React.FC = () => {
                   className="flex items-center gap-2 p-3 sm:p-4 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 rounded-lg text-sm sm:text-base"
                 >
                   <AlertCircle size={18} className="sm:w-5 sm:h-5" />
-                  {t.contact.error}
+                  Errore nell'invio del messaggio. Riprova o contattami direttamente via email.
                 </motion.div>
               )}
             </form>
