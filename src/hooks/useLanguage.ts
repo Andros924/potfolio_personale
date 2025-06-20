@@ -13,10 +13,6 @@ export const useLanguage = () => {
     document.documentElement.lang = language;
   }, [language]);
 
-  const setLanguage = (lang: Language) => {
-    setLanguage(lang);
-  };
-
   const cycleLanguage = () => {
     setLanguage(prev => {
       switch (prev) {
