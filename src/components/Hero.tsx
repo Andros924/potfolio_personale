@@ -18,25 +18,25 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]"></div>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6 sm:space-y-8"
+          className="text-center pt-20 sm:pt-16 pb-16 sm:pb-20"
         >
           {/* Profile Photo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="w-24 h-24 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden shadow-xl ring-2 ring-white/10"
+            className="w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden shadow-xl ring-2 ring-white/10 mb-6 sm:mb-8"
           >
             <img
               src="/1704189795148.jpeg"
@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
             />
           </motion.div>
 
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-10">
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed px-4"
+              className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed"
             >
               {t.hero.subtitle}
             </motion.p>
@@ -88,13 +88,13 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 sm:mb-10"
           >
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={scrollToAbout}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium shadow-lg transition-colors duration-200"
+              className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium shadow-lg transition-colors duration-200"
             >
               {t.hero.cta}
             </motion.button>
@@ -103,7 +103,7 @@ export const Hero: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={downloadCV}
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border border-blue-400 text-blue-400 rounded-lg font-medium hover:bg-blue-400 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 border border-blue-400 text-blue-400 rounded-lg font-medium hover:bg-blue-400 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
             >
               <Download size={18} />
               {t.hero.downloadCV}
@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
-            className="flex justify-center space-x-4 sm:space-x-6 px-4"
+            className="flex justify-center space-x-6"
           >
             {[
               { icon: Github, href: 'https://github.com/Andros924', label: 'GitHub' },
@@ -132,7 +132,7 @@ export const Hero: React.FC = () => {
                 className="p-3 rounded-full bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 transition-all duration-200"
                 aria-label={label}
               >
-                <Icon size={20} className="sm:w-6 sm:h-6" />
+                <Icon size={22} />
               </motion.a>
             ))}
           </motion.div>
@@ -143,7 +143,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
         >
           <motion.button
             animate={{ y: [0, 8, 0] }}
@@ -151,7 +151,7 @@ export const Hero: React.FC = () => {
             onClick={scrollToAbout}
             className="text-white/60 hover:text-white transition-colors"
           >
-            <ChevronDown size={28} className="sm:w-8 sm:h-8" />
+            <ChevronDown size={28} />
           </motion.button>
         </motion.div>
       </div>
