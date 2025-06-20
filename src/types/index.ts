@@ -15,5 +15,5 @@ export interface ContactForm {
   message: string;
 }
 
-export type Language = 'it' | 'en';
+export type Language = 'it' | 'en' | 'fr';
 export type Theme = 'light' | 'dark';

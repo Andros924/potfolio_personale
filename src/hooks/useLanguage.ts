@@ -9,11 +9,24 @@ export const useLanguage = () => {
 
   useEffect(() => {
     localStorage.setItem('language', language);
+    // Update document language attribute for accessibility
+    document.documentElement.lang = language;
   }, [language]);
 
-  const toggleLanguage = () => {
-    setLanguage(prev => prev === 'it' ? 'en' : 'it');
+  const setLanguage = (lang: Language) => {
+    setLanguage(lang);
   };
 
-  return { language, toggleLanguage };
+  const cycleLanguage = () => {
+    setLanguage(prev => {
+      switch (prev) {
+        case 'it': return 'en';
+        case 'en': return 'fr';
+        case 'fr': return 'it';
+        default: return 'it';
+      }
+    });
+  };
+
+  return { language, setLanguage, cycleLanguage };
 };

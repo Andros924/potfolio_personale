@@ -23,7 +23,6 @@ export const Contact: React.FC = () => {
     setStatus('sending');
 
     try {
-      // Invio email tramite EmailJS o servizio simile
       const response = await fetch('https://formspree.io/f/xpwzgqpv', {
         method: 'POST',
         headers: {
@@ -88,13 +87,13 @@ export const Contact: React.FC = () => {
           >
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
-                Informazioni di Contatto
+                {t.contact.info}
               </h3>
               <div className="space-y-4 sm:space-y-6">
                 {[
                   { icon: Mail, label: 'Email', value: 'studiotrib.amoroso@gmail.com', href: 'mailto:studiotrib.amoroso@gmail.com' },
-                  { icon: Phone, label: 'Telefono', value: '+39 389 053 6285', href: 'tel:+393890536285' },
-                  { icon: MapPin, label: 'Località', value: 'Italia', href: '#' }
+                  { icon: Phone, label: t.contact.info === 'Contact Information' ? 'Phone' : 'Telefono', value: '+39 389 053 6285', href: 'tel:+393890536285' },
+                  { icon: MapPin, label: t.contact.info === 'Contact Information' ? 'Location' : t.contact.info === 'Informations de Contact' ? 'Localisation' : 'Località', value: t.contact.location, href: '#' }
                 ].map((contact) => (
                   <motion.a
                     key={contact.label}
@@ -120,13 +119,12 @@ export const Contact: React.FC = () => {
 
             <div className="p-4 sm:p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800">
               <h4 className="text-lg sm:text-xl font-bold text-blue-900 dark:text-blue-100 mb-3 sm:mb-4">
-                Perché scegliermi?
+                {t.contact.why.title}
               </h4>
               <ul className="space-y-2 text-blue-800 dark:text-blue-200 text-sm sm:text-base">
-                <li>✓ Esperienza in progetti fullstack complessi</li>
-                <li>✓ Codice pulito e manutenibile</li>
-                <li>✓ Comunicazione trasparente e costante</li>
-                <li>✓ Rispetto delle tempistiche</li>
+                {t.contact.why.items.map((item, index) => (
+                  <li key={index}>✓ {item}</li>
+                ))}
               </ul>
             </div>
           </motion.div>
@@ -193,7 +191,7 @@ export const Contact: React.FC = () => {
                 {status === 'sending' ? (
                   <>
                     <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Invio in corso...
+                    {t.contact.sending}
                   </>
                 ) : (
                   <>
@@ -211,7 +209,7 @@ export const Contact: React.FC = () => {
                   className="flex items-center gap-2 p-3 sm:p-4 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-lg text-sm sm:text-base"
                 >
                   <CheckCircle size={18} className="sm:w-5 sm:h-5" />
-                  Messaggio inviato con successo! Ti risponderò al più presto.
+                  {t.contact.success}
                 </motion.div>
               )}
 
@@ -222,7 +220,7 @@ export const Contact: React.FC = () => {
                   className="flex items-center gap-2 p-3 sm:p-4 bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 rounded-lg text-sm sm:text-base"
                 >
                   <AlertCircle size={18} className="sm:w-5 sm:h-5" />
-                  Errore nell'invio del messaggio. Riprova o contattami direttamente via email.
+                  {t.contact.error}
                 </motion.div>
               )}
             </form>

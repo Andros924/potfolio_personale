@@ -88,40 +88,34 @@ export const About: React.FC = () => {
             className="space-y-6 sm:space-y-8"
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
-              La mia storia
+              {t.about.experience}
             </h3>
             
             <div className="space-y-4 sm:space-y-6">
               <div className="p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
                 <h4 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                  Passione per il codice
+                  {t.about.passion.title}
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-                  Ho iniziato il mio percorso nel mondo dello sviluppo web mosso dalla curiosità 
-                  di capire come funzionano le tecnologie che utilizziamo ogni giorno. 
-                  Quello che è iniziato come un hobby si è trasformato in una vera passione.
+                  {t.about.passion.description}
                 </p>
               </div>
 
               <div className="p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm">
                 <h4 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                  Approccio al lavoro
+                  {t.about.approach.title}
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-                  Credo nell'importanza di scrivere codice pulito e manutenibile. 
-                  Ogni progetto è un'opportunità per imparare qualcosa di nuovo e 
-                  migliorare le competenze tecniche e creative.
+                  {t.about.approach.description}
                 </p>
               </div>
 
               <div className="p-4 sm:p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800">
                 <h4 className="text-lg sm:text-xl font-semibold text-blue-900 dark:text-blue-100 mb-3">
-                  Obiettivi futuri
+                  {t.about.goals.title}
                 </h4>
                 <p className="text-blue-800 dark:text-blue-200 leading-relaxed text-sm sm:text-base">
-                  Continuo a formarmi sulle tecnologie emergenti e a perfezionare 
-                  le mie competenze. Il mio obiettivo è creare soluzioni che non solo 
-                  funzionino bene, ma che offrano anche un'esperienza utente eccellente.
+                  {t.about.goals.description}
                 </p>
               </div>
             </div>

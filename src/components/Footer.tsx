@@ -1,8 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Github, Linkedin, Mail } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
+import { translations } from '../data/translations';
 
 export const Footer: React.FC = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const navItems = [
+    { href: '#home', label: t.nav.home },
+    { href: '#about', label: t.nav.about },
+    { href: '#portfolio', label: t.nav.portfolio },
+    { href: '#contact', label: t.nav.contact },
+  ];
+
   return (
     <footer className="bg-gray-900 text-white py-8 sm:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,20 +28,15 @@ export const Footer: React.FC = () => {
               Alessandro
             </motion.div>
             <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
-              Fullstack Developer appassionato di tecnologie moderne e soluzioni innovative.
+              {t.footer.description}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3 sm:space-y-4">
-            <h3 className="text-base sm:text-lg font-semibold">Link Rapidi</h3>
+            <h3 className="text-base sm:text-lg font-semibold">{t.footer.quickLinks}</h3>
             <div className="space-y-2">
-              {[
-                { href: '#home', label: 'Home' },
-                { href: '#about', label: 'Chi Sono' },
-                { href: '#portfolio', label: 'Portfolio' },
-                { href: '#contact', label: 'Contatti' }
-              ].map((link) => (
+              {navItems.map((link) => (
                 <motion.button
                   key={link.href}
                   whileHover={{ x: 5 }}
@@ -44,7 +51,7 @@ export const Footer: React.FC = () => {
 
           {/* Social Links */}
           <div className="space-y-3 sm:space-y-4 sm:col-span-2 lg:col-span-1">
-            <h3 className="text-base sm:text-lg font-semibold">Seguimi</h3>
+            <h3 className="text-base sm:text-lg font-semibold">{t.footer.followMe}</h3>
             <div className="flex space-x-3 sm:space-x-4">
               {[
                 { icon: Github, href: 'https://github.com/Andros924', label: 'GitHub' },
@@ -74,7 +81,7 @@ export const Footer: React.FC = () => {
             animate={{ opacity: 1 }}
             className="text-gray-400 flex items-center justify-center gap-2 text-sm sm:text-base"
           >
-            Made with <Heart size={14} className="sm:w-4 sm:h-4 text-red-500" /> by Alessandro © 2025
+            {t.footer.madeWith} <Heart size={14} className="sm:w-4 sm:h-4 text-red-500" /> by Alessandro © 2025
           </motion.p>
         </div>
       </div>

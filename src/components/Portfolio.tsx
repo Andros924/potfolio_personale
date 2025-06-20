@@ -55,7 +55,7 @@ export const Portfolio: React.FC = () => {
                   ) : (
                     <span className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 bg-green-500 text-white rounded-full text-xs sm:text-sm font-medium">
                       <CheckCircle size={14} className="sm:w-4 sm:h-4" />
-                      Completato
+                      {t.portfolio.completed}
                     </span>
                   )}
                 </div>
@@ -124,10 +124,10 @@ export const Portfolio: React.FC = () => {
         >
           <div className="p-6 sm:p-8 bg-gray-50 dark:bg-gray-900 rounded-xl max-w-2xl mx-auto">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
-              Hai un progetto in mente?
+              {t.portfolio.cta.title}
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
-              Sono sempre interessato a nuove sfide e opportunità di collaborazione.
+              {t.portfolio.cta.subtitle}
             </p>
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -135,7 +135,7 @@ export const Portfolio: React.FC = () => {
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium shadow-sm transition-colors duration-200"
             >
-              Iniziamo a collaborare
+              {t.portfolio.cta.button}
             </motion.button>
           </div>
         </motion.div>
